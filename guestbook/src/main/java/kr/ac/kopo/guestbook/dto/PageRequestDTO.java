@@ -8,11 +8,15 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
 @Builder
-@Data
 @AllArgsConstructor
+@Data
 public class PageRequestDTO {
     private int page;
     private int size;
+
+    private String type;
+
+    private String keyword;
 
     public PageRequestDTO(){
         page = 1;
@@ -20,6 +24,7 @@ public class PageRequestDTO {
     }
 
     public Pageable getPageable(Sort sort){
+
         return PageRequest.of(page-1, size, sort);
     }
 }

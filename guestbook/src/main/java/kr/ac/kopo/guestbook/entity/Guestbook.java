@@ -2,6 +2,10 @@ package kr.ac.kopo.guestbook.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -9,10 +13,11 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Guestbook extends BaseEntity {
+public class Guestbook extends BaseEntity{
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long gno;
+    private Long gno;
 
     @Column(length = 100, nullable = false)
     private String title;
